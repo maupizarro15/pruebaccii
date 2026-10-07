@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CuentaBancariaTest {
     @Test
     void depositoDebeIncrementarSaldo() {
-        CuentaBancaria cuenta = new CuentaBancaria(100);
-        cuenta.depositar(50);
-        assertEquals(150, cuenta.obtenerSaldo());
+        CuentaBancaria cuenta = new CuentaBancaria(1000);
+        cuenta.depositar(500);
+        assertEquals(1600, cuenta.obtenerSaldo());
     }
 }
