@@ -6,15 +6,25 @@ public class CuentaBancaria {
         this.saldo = saldoInicial;
     }
     public void depositar(double monto) {
-        saldo += monto;
+        if (monto > 0) {
+            saldo += monto;
+        }
     }
-    public double obtenerSaldo() {
+    public void retirar(double monto) {
+        if (monto > 0 && monto <= saldo) {
+            saldo -= monto;
+        }
+    }
+    public double getSaldo() {
         return saldo;
     }
-    //AGREGANDO METODO DESDE RAMA2
-    public void retirar(double monto) {
-        if (monto <= saldo) {
-            saldo -= monto;
+
+    public void transferir(
+            CuentaBancaria destino,
+            double monto) {
+        if (monto > 0 && monto <= saldo) {
+            this.saldo -= monto;
+            destino.depositar(monto);
         }
     }
 }
