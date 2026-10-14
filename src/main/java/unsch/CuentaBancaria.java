@@ -2,6 +2,7 @@ package unsch;
 
 public class CuentaBancaria {
     private double saldo;
+
     public CuentaBancaria(double saldoInicial) {
         this.saldo = saldoInicial;
     }

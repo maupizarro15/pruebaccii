@@ -21,7 +21,7 @@ public class CuentaBancariaTest {
         assertEquals(60, cuenta.obtenerSaldo());
     }
     */
-    
+
 
     @Test
     void retirarConSaldoInsuficiente() {
@@ -54,5 +54,33 @@ public class CuentaBancariaTest {
         origen.transferir(destino, 200);
         assertEquals(800, origen.getSaldo());
         assertEquals(700, destino.getSaldo());
+    }
+
+    //PRUEBAS UNITARIAS
+    @Test
+    void transferirMontoExitoso() {
+        CuentaBancaria origen = new CuentaBancaria(1000);
+        CuentaBancaria destino = new CuentaBancaria(500);
+        origen.transferir(destino, 300);
+        assertEquals(700, origen.getSaldo());
+        assertEquals(800, destino.getSaldo());
+    }
+
+    @Test
+    void transferirSaldoInsuficiente() {
+        CuentaBancaria origen = new CuentaBancaria(100);
+        CuentaBancaria destino = new CuentaBancaria(500);
+        origen.transferir(destino, 200);
+        assertEquals(100, origen.getSaldo());
+        assertEquals(500, destino.getSaldo());
+    }
+
+    @Test
+    void transferirMontoInvalido() {
+        CuentaBancaria origen = new CuentaBancaria(1000);
+        CuentaBancaria destino = new CuentaBancaria(500);
+        origen.transferir(destino, -50);
+        assertEquals(1000, origen.getSaldo());
+        assertEquals(500, destino.getSaldo());
     }
 }
