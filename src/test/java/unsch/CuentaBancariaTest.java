@@ -83,4 +83,27 @@ public class CuentaBancariaTest {
         assertEquals(1000, origen.getSaldo());
         assertEquals(500, destino.getSaldo());
     }
+
+
+    // TEST ASIGNADO
+    @Test
+    void pagarServicioConSaldoSuficiente() {
+        CuentaBancaria cuenta = new CuentaBancaria(1000);
+        cuenta.pagarServicio("Luz", 150);
+        assertEquals(850, cuenta.getSaldo());
+    }
+
+    @Test
+    void pagarServicioConSaldoInsuficiente() {
+        CuentaBancaria cuenta = new CuentaBancaria(100);
+        cuenta.pagarServicio("Agua", 200);
+        assertEquals(100, cuenta.getSaldo());
+    }
+
+    @Test
+    void pagarServicioMontoNegativo() {
+        CuentaBancaria cuenta = new CuentaBancaria(500);
+        cuenta.pagarServicio("Internet", -50);
+        assertEquals(500, cuenta.getSaldo());
+    }
 }

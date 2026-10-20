@@ -28,4 +28,13 @@ public class CuentaBancaria {
             destino.depositar(monto);
         }
     }
+
+    // FUNCION ASIGNADA PAGO DE SERVICIOS
+
+    public void pagarServicio(String nombreServicio, double monto) {
+        if (monto > 0 && monto <= saldo) {
+            this.saldo -= monto;
+        }
+    }
+
 }
